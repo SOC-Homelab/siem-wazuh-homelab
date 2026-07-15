@@ -22,8 +22,8 @@
 
 Su VirtualBox, PC fisso:
 
-- **VM1 → Wazuh Manager** — Ubuntu Server, destinata allo stack all-in-one (Manager + Indexer + Dashboard)
-- **VM2 → Wazuh Agent** — Ubuntu Server, la futura vittima
+- **VM1 → Wazuh Manager** — Ubuntu, destinata allo stack all-in-one (Manager + Indexer + Dashboard)
+- **VM2 → Wazuh Agent** — Ubuntu, la futura vittima
 
 Su ciascun laptop, una **VM Kali Linux** (Attaccante 1 e Attaccante 2).
 
