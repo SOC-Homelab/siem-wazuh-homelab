@@ -38,3 +38,55 @@ Un server Wazuh raccoglie e correla i log di una macchina vittima (Wazuh Agent),
 > **Perché Windows come host del SIEM.** Wazuh è molto esigente in termini di RAM (Manager + Indexer basato su OpenSearch + Dashboard). Il PC fisso è l'unica macchina con risorse sufficienti a ospitare contemporaneamente due VM Ubuntu; i laptop restano dedicati alle VM Kali, molto più leggere.
 
 ---
+
+## Indice della documentazione
+
+| # | Documento | Contenuto |
+|---|---|---|
+| 00 | [Cronologia del progetto](docs/00-timeline.md) | Le fasi del lavoro in ordine, dall'ipotesi iniziale al report |
+| 01 | [Inventario dell'ambiente](docs/01-inventario-ambiente.md) | Host fisici, VM, ruoli, indirizzamento |
+| 02 | [Deployment e enrollment](docs/02-deployment.md) | Installazione stack Wazuh, registrazione dell'agente |
+| 03 | [Fase di attacco](docs/03-attacchi.md) | Ricognizione `nmap`, brute force SSH con `Hydra` |
+| 04 | [Detection engineering](docs/04-detection.md) | Audit dei comandi privilegiati, autenticazioni PAM |
+| 05 | [Vulnerability Detection](docs/05-vulnerability.md) | Inventario CVE dell'endpoint |
+| 06 | [Problemi e soluzioni](docs/06-problemi-soluzioni.md) | **Cosa è andato storto e come l'abbiamo diagnosticato** |
+| 07 | [Sviluppi futuri](docs/07-sviluppi-futuri.md) | DVWA/SQLi, Suricata, estensione FIM |
+| 08 | [Q&A tecnico](docs/08-colloquio-qa.md) | Domande e risposte sui concetti del progetto |
+| 09 | [Riferimenti](docs/09-riferimenti.md) | Documentazione ufficiale seguita |
+
+---
+
+## Risultati e telemetria osservata
+
+Al termine il laboratorio produceva, **in modo ripetibile**, alert e dati per:
+
+| Attività | Evidenza raccolta |
+|---|---|
+| **Ricognizione** (`nmap`) | Scansioni da due IP sorgente distinti — unica porta esposta `22/SSH` (OpenSSH 9.6p1), 65534 porte filtrate |
+| **Brute force SSH** (`Hydra`) | Rule ID **2502** — *User missed the password more than one time* (liv. 10) e **5710** — *Attempt to login using a non-existent user* |
+| **Escalation di privilegi** | Rule ID **5404** — *Three failed attempts to run sudo* (liv. 10) e **5402** — *Successful sudo to ROOT executed*, con sessioni PAM 5501/5502/5503 |
+| **Audit del comando** | Campo `data.command` con il comando esatto eseguito da root, utente sorgente/destinazione, TTY |
+| **Vulnerability Detection** | 2.225 vulnerabilità sull'agente: 83 Critical · 836 High · 1.031 Medium · 72 Low · 203 pending |
+
+Il flusso SOC completo che ne risulta:
+
+**attacco → generazione log sulla vittima → invio all'agente → correlazione sul Manager → alert sulla dashboard → analisi**
+
+affiancato dalla gestione delle vulnerabilità dell'endpoint.
+
+> Nota metodologica: nel test con Hydra **nessuna password valida è stata trovata**. Dal punto di vista difensivo ciò che conta è che la detection ha funzionato — *exploit non riuscito, detection riuscita* è esattamente l'obiettivo di un lab SOC.
+
+---
+
+## Problemi riscontrati (sintesi)
+
+| # | Problema | Causa | Soluzione | Lezione |
+|---|---|---|---|---|
+| 1 | I laptop non reggevano il carico | Wazuh/Indexer affamato di RAM | Manager + Agent spostati sul PC fisso; Kali sui laptop | Dimensionare le risorse **prima** del deployment |
+| 2 | Agente non visibile sulla dashboard | Entrambe le VM in NAT → reti isolate | Passaggio a scheda bridged su entrambe | NAT isola le VM; bridged le mette sulla stessa LAN |
+| 3 | Agente ancora disconnesso dopo il bridge | `ossec.conf` dell'agente puntava al vecchio IP NAT | Aggiornato l'indirizzo del Manager + restart del servizio | Se cambia l'IP del Manager, aggiorna sempre l'agente |
+| 4 | Nessuna porta da attaccare | Vittima con servizi minimi | Abilitato SSH (`:22`) manualmente | Serve una superficie d'attacco per generare telemetria |
+
+Il dettaglio completo di ogni diagnosi è in → [docs/06-problemi-soluzioni.md](docs/06-problemi-soluzioni.md)
+
+---
