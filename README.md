@@ -50,9 +50,7 @@ Un server Wazuh raccoglie e correla i log di una macchina vittima (Wazuh Agent),
 | 04 | [Detection engineering](docs/04-detection.md) | Audit dei comandi privilegiati, autenticazioni PAM |
 | 05 | [Vulnerability Detection](docs/05-vulnerability.md) | Inventario CVE dell'endpoint |
 | 06 | [Problemi e soluzioni](docs/06-problemi-soluzioni.md) | **Cosa è andato storto e come l'abbiamo diagnosticato** |
-| 07 | [Sviluppi futuri](docs/07-sviluppi-futuri.md) | DVWA/SQLi, Suricata, estensione FIM |
-| 08 | [Q&A tecnico](docs/08-colloquio-qa.md) | Domande e risposte sui concetti del progetto |
-| 09 | [Riferimenti](docs/09-riferimenti.md) | Documentazione ufficiale seguita |
+| 07 | [Riferimenti](docs/09-riferimenti.md) | Documentazione ufficiale seguita |
 
 ---
 
