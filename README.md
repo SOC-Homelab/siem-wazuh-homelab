@@ -1,2 +1,3 @@
 # SIEM-WAZUH-HOMELAB
-SOC homelab: centralized SIEM monitoring, alerting, and log analysis with Wazuh
+SOC homelab: centralized SIEM monitoring, alerting, 
+and log analysis with Wazuh
