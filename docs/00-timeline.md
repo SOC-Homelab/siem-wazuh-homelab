@@ -41,15 +41,4 @@ Nessuna delle tre fasi marcate ❌ era prevista. Sono quelle che hanno insegnato
 
 ---
 
-## Cosa è rimasto fuori
-
-Due cose sono state **volutamente** rimandate invece di essere forzate:
-
-- **Detection di SQL injection** — provata, non funzionante, causa individuata (manca la configurazione `<localfile>` per l'`access.log` di Apache). Documentata come tale, non nascosta.
-- **File Integrity Monitoring (syscheck)** — la documentazione ufficiale è stata studiata come riferimento, ma l'implementazione non è stata completata.
-
-Entrambe in [07 — Sviluppi futuri](07-sviluppi-futuri.md).
-
----
-
 **Prossimo:** [01 — Inventario dell'ambiente](01-inventario-ambiente.md)
