@@ -15,3 +15,16 @@ Abbiamo progettato e realizzato un laboratorio SIEM completo per acquisire compe
 Un server Wazuh raccoglie e correla i log di una macchina vittima (Wazuh Agent), che viene attaccata da due host indipendenti con Kali Linux. Ogni evento generato dagli attacchi — scansioni di rete, brute force SSH, escalation di privilegi, comandi eseguiti da root — viene rilevato, normalizzato e visualizzato sulla dashboard sotto forma di alert. In parallelo, il modulo di Vulnerability Detection mappa le vulnerabilità note dell'endpoint.
 
 **Il progetto è partito da un'architettura sbagliata**, che è stata diagnosticata, corretta e ricostruita. Proprio la gestione degli errori — RAM insufficiente e connettività di rete tra le VM — è la parte più formativa del lavoro, ed è documentata per intero: vedi [Problemi e soluzioni](docs/06-problemi-soluzioni.md).
+
+---
+
+## Obiettivi
+
+- Distribuire uno stack SIEM funzionante (Wazuh all-in-one) sulla nostra rete di casa isolata.
+- Registrare correttamente un agente ed effettuare l'enrollment Agent → Manager.
+- Generare telemetria realistica tramite attacchi da host separati.
+- Configurare la detection lato difensivo: audit dei comandi privilegiati (`sudo`), autenticazioni (PAM/SSH), brute force, scansioni e vulnerability detection.
+- Costruire una **base comune** da cui ciascuno ha condotto in autonomia il proprio attacco dalla propria macchina Kali, per confrontare la detection da due sorgenti diverse.
+- Lavorare seguendo la [documentazione ufficiale Wazuh](https://documentation.wazuh.com/current/) (Proof of Concept guide), per garantire configurazioni corrette e dimostrare la capacità di leggere e applicare documentazione tecnica.
+
+---
