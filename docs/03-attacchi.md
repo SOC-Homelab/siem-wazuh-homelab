@@ -89,7 +89,6 @@ curl "http://192.168.1.27/page?id=1' OR '1'='1"
 
 Lo documentiamo apposta invece di nasconderlo: è la differenza tra "l'attacco non è avvenuto" e "l'attacco è avvenuto ma non l'abbiamo visto" — e la seconda è la lezione più importante di tutte per un analista SOC. Un evento che non arriva al SIEM è un punto cieco.
 
-Il vettore è rimandato con la sua soluzione già individuata → [07 — Sviluppi futuri](07-sviluppi-futuri.md).
 
 ---
 
