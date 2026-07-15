@@ -50,7 +50,7 @@ Un server Wazuh raccoglie e correla i log di una macchina vittima (Wazuh Agent),
 | 04 | [Detection engineering](docs/04-detection.md) | Audit dei comandi privilegiati, autenticazioni PAM |
 | 05 | [Vulnerability Detection](docs/05-vulnerability.md) | Inventario CVE dell'endpoint |
 | 06 | [Problemi e soluzioni](docs/06-problemi-soluzioni.md) | **Cosa è andato storto e come l'abbiamo diagnosticato** |
-| 07 | [Riferimenti](docs/09-riferimenti.md) | Documentazione ufficiale seguita |
+| 07 | [Riferimenti](docs/07-riferimenti.md) | Documentazione ufficiale seguita |
 
 ---
 
