@@ -1,16 +1,8 @@
 # 06 — Problemi e soluzioni
 
-> La parte più formativa del progetto. Ogni problema è raccontato con lo schema **Sintomo → Diagnosi → Soluzione → Lezione**, perché è così che ragiona un analista: non "ha funzionato per caso", ma "ho capito perché non funzionava".
+> La parte più formativa del progetto. Ogni problema è raccontato con lo schema **Sintomo → Diagnosi → Soluzione → Lezione**.
 
 [← Torna al README](../README.md)
-
----
-
-## Perché questa pagina è la più importante
-
-Un homelab che funziona al primo colpo non insegna niente e non lo racconti in nessun colloquio. Il valore sta negli errori: dimostrano **metodo di troubleshooting**, cioè la capacità di isolare una causa invece di procedere per tentativi casuali. Questa pagina è quella che un intervistatore tecnico leggerà per prima.
-
-Le narrazioni estese vivono nelle pagine di fase; qui sta la sintesi consultabile.
 
 ---
 
@@ -36,7 +28,7 @@ Le narrazioni estese vivono nelle pagine di fase; qui sta la sintesi consultabil
 
 **Soluzione.** Riprogettazione dell'architettura: componenti pesanti (Manager + Agent Ubuntu) sul PC fisso Windows, VM Kali leggere sui laptop.
 
-**Lezione.** Il dimensionamento hardware è un vincolo di progetto reale. I requisiti di un SIEM si leggono *prima* di installarlo, non si scoprono a metà. → [02, Fase 0](02-deployment.md#fase-0--il-primo-errore-tutto-sui-laptop)
+**Lezione.** Il dimensionamento hardware è un vincolo di progetto reale. I requisiti di un SIEM si leggono *prima* di installarlo. → [02, Fase 0](02-deployment.md#fase-0--il-primo-errore-tutto-sui-laptop)
 
 ---
 
@@ -60,7 +52,7 @@ Le narrazioni estese vivono nelle pagine di fase; qui sta la sintesi consultabil
 
 **Soluzione.** Aggiornato manualmente l'indirizzo del Manager nell'`ossec.conf` con il nuovo IP bridged (`192.168.1.28`) e riavviato il servizio dell'agente. → agente `Active`.
 
-**Lezione.** Questo è il problema più didattico dei tre, perché è "invisibile": nessun errore urlato, l'agente cercava silenziosamente un indirizzo morto. Quando cambia l'IP del Manager, va **sempre** aggiornato l'agente. È la trappola classica del passaggio NAT → bridged.
+**Lezione.** Questo è il problema più didattico dei tre, perché è "invisibile": nessun errore visibile, l'agente cercava continuamente un indirizzo morto. Quando cambia l'IP del Manager, va **sempre** aggiornato l'agente.
 
 ---
 
@@ -80,11 +72,11 @@ Le narrazioni estese vivono nelle pagine di fase; qui sta la sintesi consultabil
 
 **Sintomo.** Tentativo di SQL injection via `curl` contro Apache sulla vittima → nessun alert sul Manager.
 
-**Diagnosi.** Non un fallimento dell'attacco, ma un **punto cieco della detection**: l'agente non monitorava l'`access.log` di Apache. Mancava la configurazione `<localfile>` con `log_format apache`. Senza quella sorgente, Wazuh non aveva log web da leggere.
+**Diagnosi.** Non è un fallimento dell'attacco, ma un **punto cieco della detection**: l'agente non monitorava l'`access.log` di Apache. Mancava la configurazione `<localfile>` con `log_format apache`. Senza quella sorgente, Wazuh non aveva log web da leggere.
 
 **Soluzione.** Rimandato consapevolmente: la configurazione web è pianificata come sviluppo futuro, con soluzione già individuata.
 
-**Lezione.** La più importante di tutte. C'è differenza tra *"l'attacco non è avvenuto"* e *"l'attacco è avvenuto ma non l'abbiamo visto"*. La seconda è il vero incubo di un SOC: un evento che non raggiunge il SIEM è cieco per definizione. Riconoscere un punto cieco vale più che coprire un altro vettore già coperto.
+**Lezione.** C'è differenza tra *"l'attacco non è avvenuto"* e *"l'attacco è avvenuto ma non è stato letto"*. La seconda indica che un evento che non raggiunge il SIEM è cieco per definizione. Riconoscere un punto cieco è una delle cose più importanti che abbiamo imparato.
 
 ---
 
