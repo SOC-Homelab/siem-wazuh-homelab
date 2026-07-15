@@ -30,11 +30,11 @@ Un homelab costruito "a sensazione" e uno costruito seguendo la documentazione u
 
 - **File Integrity Monitoring**
   https://documentation.wazuh.com/current/proof-of-concept-guide/poc-file-integrity-monitoring.html
-  Consultata come riferimento per il syscheck su `/root` (rule ID 550 / 553 / 554). Implementazione **pianificata** → [07 — Sviluppi futuri](07-sviluppi-futuri.md#2-file-integrity-monitoring-syscheck).
+  Consultata come riferimento per il syscheck su `/root` (rule ID 550 / 553 / 554). 
 
 - **Detecting an SQL injection attack** *(sviluppo futuro)*
   https://documentation.wazuh.com/current/proof-of-concept-guide/detect-web-attack-sql-injection.html
-  Riferimento per la detection web via `access.log` di Apache. **Pianificata** → [07 — Sviluppi futuri](07-sviluppi-futuri.md#1-detection-di-sql-injection-sul-livello-web).
+  Riferimento per la detection web via `access.log` di Apache.
 
 ---
 
@@ -64,4 +64,4 @@ Le configurazioni del laboratorio (installazione dello stack, enrollment dell'ag
 
 ---
 
-**Precedente:** [08 — Q&A tecnico](08-colloquio-qa.md) · [↑ Torna al README](../README.md)
+· [↑ Torna al README](../README.md)
