@@ -82,7 +82,7 @@ Non è un caso che l'audit delle autenticazioni e la detection del brute force (
 
 Il **syscheck** (File Integrity Monitoring) — che genererebbe alert su modifica/cancellazione/creazione di file in directory sensibili come `/root` o `/etc` (rule ID 550 / 553 / 554) — è stato **studiato come riferimento** sulla documentazione ufficiale, ma **non implementato** in questa fase.
 
-Le prove raccolte qui riguardano l'audit dei comandi e delle autenticazioni, **non** il syscheck. Lo diciamo esplicitamente per non attribuire al lab una capacità che non è ancora stata verificata con uno screenshot. Implementazione pianificata in → [07 — Sviluppi futuri](07-sviluppi-futuri.md).
+Le prove raccolte qui riguardano l'audit dei comandi e delle autenticazioni, **non** il syscheck. Lo diciamo esplicitamente per non attribuire al lab una capacità che non è ancora stata verificata con uno screenshot.
 
 ---
 
