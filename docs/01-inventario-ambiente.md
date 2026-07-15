@@ -24,8 +24,8 @@ Hypervisor: **VirtualBox** su tutti e tre gli host.
 
 | VM | Host | SO guest | Ruolo | Hostname | IP |
 |---|---|---|---|---|---|
-| VM1 | PC fisso | Ubuntu Server 24.04 | Wazuh **Manager + Indexer + Dashboard** | `ubuntu-manager-VirtualBox` | `192.168.1.28` |
-| VM2 | PC fisso | Ubuntu Server 24.04 | Wazuh **Agent** — vittima | `ubuntu-agent-VirtualBox` | `192.168.1.27` |
+| VM1 | PC fisso | Ubuntu 24.04 | Wazuh **Manager + Indexer + Dashboard** | `ubuntu-manager-VirtualBox` | `192.168.1.28` |
+| VM2 | PC fisso | Ubuntu 24.04 | Wazuh **Agent** — vittima | `ubuntu-agent-VirtualBox` | `192.168.1.27` |
 | VM3 | Lenovo | Kali Linux | Attaccante 1 | — | DHCP (LAN) |
 | VM4 | MacBook | Kali Linux | Attaccante 2 | — | DHCP (LAN) |
 
