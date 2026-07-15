@@ -82,7 +82,7 @@ Le narrazioni estese vivono nelle pagine di fase; qui sta la sintesi consultabil
 
 **Diagnosi.** Non un fallimento dell'attacco, ma un **punto cieco della detection**: l'agente non monitorava l'`access.log` di Apache. Mancava la configurazione `<localfile>` con `log_format apache`. Senza quella sorgente, Wazuh non aveva log web da leggere.
 
-**Soluzione.** Rimandato consapevolmente: la configurazione web è pianificata come sviluppo futuro, con soluzione già individuata. → [07 — Sviluppi futuri](07-sviluppi-futuri.md)
+**Soluzione.** Rimandato consapevolmente: la configurazione web è pianificata come sviluppo futuro, con soluzione già individuata.
 
 **Lezione.** La più importante di tutte. C'è differenza tra *"l'attacco non è avvenuto"* e *"l'attacco è avvenuto ma non l'abbiamo visto"*. La seconda è il vero incubo di un SOC: un evento che non raggiunge il SIEM è cieco per definizione. Riconoscere un punto cieco vale più che coprire un altro vettore già coperto.
 
@@ -94,4 +94,4 @@ Tre dei cinque problemi (2, 3, 4) sono di **rete e configurazione**, non di sicu
 
 ---
 
-**Precedente:** [05 — Vulnerability Detection](05-vulnerability.md) · **Prossimo:** [07 — Sviluppi futuri](07-sviluppi-futuri.md)
+**Precedente:** [05 — Vulnerability Detection](05-vulnerability.md) · **Prossimo:** [07 — Sviluppi futuri](07-riferimenti.md)
