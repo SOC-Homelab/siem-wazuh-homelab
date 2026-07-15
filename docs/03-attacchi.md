@@ -87,8 +87,7 @@ curl "http://192.168.1.27/page?id=1' OR '1'='1"
 
 **Nessun alert sul Manager.** Non perché l'attacco fosse innocuo, ma perché **l'ambiente non era configurato per la detection web**: mancava il monitoraggio dell'`access.log` di Apache lato agente (`<localfile>` con `log_format apache`). Senza quella sorgente, Wazuh non aveva nulla da leggere.
 
-Lo documentiamo apposta invece di nasconderlo: è la differenza tra "l'attacco non è avvenuto" e "l'attacco è avvenuto ma non l'abbiamo visto" — e la seconda è la lezione più importante di tutte per un analista SOC. Un evento che non arriva al SIEM è un punto cieco.
-
+Lo documentiamo apposta invece di nasconderlo: è la differenza tra "l'attacco non è avvenuto" e "l'attacco è avvenuto ma non l'abbiamo visto".
 
 ---
 
