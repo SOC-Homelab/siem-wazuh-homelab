@@ -96,7 +96,7 @@ Il dettaglio completo di ogni diagnosi è in → [docs/06-problemi-soluzioni.md]
 | [1](img/fig1-nmap.png) | Ricognizione `nmap` dal Kali attaccante |
 | [2](img/fig2-hydra.png) | Brute force SSH con Hydra + alert 2502 / 5710 |
 | [3](img/fig3-sudo-fail.png) | Escalation privilegi fallita — rule 5404 / 5503 |
-| [4](img/fig4-sudo-ok.png) | Escalation riuscita e sessione PAM — rule 5402 |
+| [4](img/fig4-escalation-riuscita.png) | Escalation riuscita e sessione PAM — rule 5402 |
 | [5](img/fig5-command-audit.png) | Audit del comando: dettaglio evento `data.command` |
 | [6](img/fig6-vuln-dashboard.png) | Vulnerability Detection — dashboard di sintesi |
 | [7](img/fig7-vuln-inventory.png) | Vulnerability Detection — inventario CVE |
