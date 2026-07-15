@@ -28,3 +28,13 @@ Un server Wazuh raccoglie e correla i log di una macchina vittima (Wazuh Agent),
 - Lavorare seguendo la [documentazione ufficiale Wazuh](https://documentation.wazuh.com/current/) (Proof of Concept guide), per garantire configurazioni corrette e dimostrare la capacità di leggere e applicare documentazione tecnica.
 
 ---
+
+## Architettura
+
+![Architettura](Immagini/Architettura.png)
+
+**Come leggerla:** i due Kali attaccano entrambi la stessa vittima (Wazuh Agent). La vittima invia i suoi log al Wazuh Manager, che li correla e li mostra come alert sulla Dashboard. Avere due attaccanti distinti ci ha permesso di vedere la detection da **due IP sorgente diversi** — un esercizio di correlazione multi-sorgente.
+
+> **Perché Windows come host del SIEM.** Wazuh è molto esigente in termini di RAM (Manager + Indexer basato su OpenSearch + Dashboard). Il PC fisso è l'unica macchina con risorse sufficienti a ospitare contemporaneamente due VM Ubuntu; i laptop restano dedicati alle VM Kali, molto più leggere.
+
+---
