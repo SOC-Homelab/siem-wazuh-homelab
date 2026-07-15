@@ -8,7 +8,7 @@
 
 ## Perché citiamo le fonti
 
-Un homelab costruito "a sensazione" e uno costruito seguendo la documentazione ufficiale si distinguono al primo problema serio. Aver lavorato sulle **Proof of Concept guide** di Wazuh significa che le configurazioni non sono improvvisate, e che sappiamo dove tornare quando qualcosa non torna. In un ruolo SOC, saper leggere la documentazione di uno strumento è una competenza quotidiana quanto saper leggere un alert.
+Un homelab costruito "a sensazione" e uno costruito seguendo la documentazione ufficiale si distinguono al primo problema serio. Aver lavorato sulle **Proof of Concept guide** di Wazuh significa che le configurazioni non sono improvvisate, e che sappiamo dove tornare quando qualcosa non torna. In un ruolo SOC, abbiamo capito che saper leggere la documentazione di uno strumento è una competenza quotidiana quanto saper leggere un alert.
 
 ---
 
@@ -48,19 +48,9 @@ Un homelab costruito "a sensazione" e uno costruito seguendo la documentazione u
 
 ---
 
-## Strumenti pianificati (sviluppi futuri)
-
-- **DVWA** (Damn Vulnerable Web Application) — https://github.com/digininja/DVWA
-  Applicazione volutamente vulnerabile per testare la detection di SQL injection.
-
-- **Suricata** — https://suricata.io/
-  IDS di rete per la correlazione host + rete.
-
----
-
 ## Nota metodologica
 
-Le configurazioni del laboratorio (installazione dello stack, enrollment dell'agente, brute force SSH) seguono le rispettive guide ufficiali della documentazione Wazuh. Dove abbiamo deviato — o dove qualcosa non ha funzionato al primo colpo — lo abbiamo documentato in [06 — Problemi e soluzioni](06-problemi-soluzioni.md), perché è lì che sta il vero apprendimento.
+Le configurazioni del laboratorio (installazione dello stack, enrollment dell'agente, brute force SSH) seguono le rispettive guide ufficiali della documentazione Wazuh. Dove abbiamo deviato — o dove qualcosa non ha funzionato al primo colpo — lo abbiamo documentato in [06 — Problemi e soluzioni](06-problemi-soluzioni.md).
 
 ---
 
