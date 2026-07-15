@@ -90,3 +90,46 @@ affiancato dalla gestione delle vulnerabilità dell'endpoint.
 Il dettaglio completo di ogni diagnosi è in → [docs/06-problemi-soluzioni.md](docs/06-problemi-soluzioni.md)
 
 ---
+
+## Evidenze
+
+| Fig. | Contenuto |
+|---|---|
+| [1](img/fig1-nmap.png) | Ricognizione `nmap` dal Kali attaccante |
+| [2](img/fig2-hydra.png) | Brute force SSH con Hydra + alert 2502 / 5710 |
+| [3](img/fig3-sudo-fail.png) | Escalation privilegi fallita — rule 5404 / 5503 |
+| [4](img/fig4-sudo-ok.png) | Escalation riuscita e sessione PAM — rule 5402 |
+| [5](img/fig5-command-audit.png) | Audit del comando: dettaglio evento `data.command` |
+| [6](img/fig6-vuln-dashboard.png) | Vulnerability Detection — dashboard di sintesi |
+| [7](img/fig7-vuln-inventory.png) | Vulnerability Detection — inventario CVE |
+| [8](img/fig8-vuln-events.png) | Vulnerability Detection — eventi Active |
+
+Le immagini complete con didascalia sono incorporate nei rispettivi documenti in `docs/`.
+
+---
+
+## Modalità di lavoro
+
+Il progetto è stato realizzato **a quattro mani, in modalità collaborativa e simmetrica**: mentre uno eseguiva un passaggio, l'altro lo replicava in parallelo sul proprio host, per poi invertire i ruoli. Questo vale sia per la costruzione dell'infrastruttura sia per la fase di attacco.
+
+- **Costruzione condivisa** — progettazione dell'architettura, provisioning delle VM, deployment dello stack, enrollment dell'agente e troubleshooting della rete (NAT → bridged, fix dell'`ossec.conf`) sono stati affrontati insieme, con entrambi che ripercorrevano ogni step.
+- **Attacchi replicati su due host indipendenti** — ogni vettore (`nmap`, `Hydra`) è stato eseguito da entrambi dalla propria VM Kali: Carlo dal Lenovo, Giulia dal MacBook.
+
+Ne consegue che **entrambi padroneggiano l'intera catena**, dal deployment all'attacco.
+
+---
+
+## Lezioni apprese
+
+- Il **dimensionamento hardware** (soprattutto la RAM per l'Indexer) è un vincolo di progetto reale.
+- La **rete delle VM** è la fonte di problemi numero uno in un homelab: capire NAT vs bridged vs host-only è fondamentale.
+- La comunicazione **Agent → Manager** dipende da tre cose insieme: rete condivisa, porte raggiungibili, indirizzo del Manager corretto nell'agente.
+- Un buon laboratorio difensivo non serve solo ad "attaccare": il valore è nel **configurare la detection** e nella gestione delle vulnerabilità, leggendo gli alert come farebbe un analista.
+
+---
+
+## Nota etica
+
+Tutti i test sono stati eseguiti su una **rete privata e isolata**, su **macchine di nostra proprietà**, a scopo di apprendimento difensivo, seguendo le guide Proof of Concept ufficiali di Wazuh. Nessun sistema di terzi è stato coinvolto.
+
+---
