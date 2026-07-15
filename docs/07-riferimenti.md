@@ -1,4 +1,4 @@
-# 09 — Riferimenti
+# 07 — Riferimenti
 
 > La documentazione ufficiale seguita durante il progetto. Saper leggere e applicare la documentazione è parte integrante del metodo: garantisce configurazioni corrette e riflette la capacità di auto-aggiornarsi su una tecnologia in evoluzione.
 
