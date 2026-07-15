@@ -53,7 +53,7 @@ Ma il valore vero non è sapere *che* c'è stata un'escalation — è sapere **c
 | TTY | il terminale di origine |
 | Decoder note | *First time user executed the sudo command* |
 
-📷 **Evidenze:** [Fig. 4 — Escalation riuscita + PAM](../img/fig4-sudo-ok.png) · [Fig. 5 — Audit del comando](../img/fig5-command-audit.png)
+📷 **Evidenze:** [Fig. 4 — Escalation riuscita + PAM](../img/fig4-escalation-riuscita.png) · [Fig. 5 — Audit del comando](../img/fig5-command-audit.png)
 
 ---
 
